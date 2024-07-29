@@ -1,9 +1,6 @@
 package org.scaler.bookmyshow_sept23_evening.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -21,9 +18,10 @@ public class Booking extends BaseModel {
     private Date bookedAt;
     @ManyToMany
     private List<ShowSeat> seats;
-    @OneToMany(mappedBy = "booking")
+    @OneToMany
     private List<Payment> payments;
     private int amount;
+    @Enumerated(value = EnumType.STRING)
     private BookingStatus bookingStatus;
 
 }
@@ -40,4 +38,12 @@ public class Booking extends BaseModel {
 
 // Mock Backend LLD 2 : HIGH PRIORITY
 // SOLVE PROBLEMS
+
+
+// Agenda :
+// 1. Complete cardinalities
+// 2. Discuss how we might be the locking part
+
+// <= 90 minutes
+
 
