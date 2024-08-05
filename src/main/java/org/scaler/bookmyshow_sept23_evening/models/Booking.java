@@ -18,7 +18,7 @@ public class Booking extends BaseModel {
     private Date bookedAt;
     @ManyToMany
     private List<ShowSeat> seats;
-    @OneToMany
+    @OneToMany(mappedBy = "booking")
     private List<Payment> payments;
     private int amount;
     @Enumerated(value = EnumType.STRING)
